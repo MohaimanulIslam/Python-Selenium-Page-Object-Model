@@ -1,4 +1,4 @@
-from Tests.BaseTest import BasePage
+from Tests.BasePage import BasePage
 
 
 class OpenWidow(BasePage):

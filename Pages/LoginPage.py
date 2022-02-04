@@ -1,5 +1,7 @@
+import time
+
 from Locators.locators import SignInPageLocators
-from Pages.BasePage import HomePage
+from Pages.HomePage import HomePage
 
 
 class LoginPage(HomePage):
@@ -12,5 +14,17 @@ class LoginPage(HomePage):
     def click_on_login(self):
         self.find_element(*self.locator.LOGIN_BTN).click()
 
-    # def enter_email_id(self, email):
-    #     self.driver.find_element_by_id(self.setEmailId).send_keys(email)
+    def set_email(self, email):
+        self.find_element(*self.locator.SET_EMAIL).send_keys(email)
+
+    def click_on_next(self):
+        self.find_element(*self.locator.CLICK_EMAIL_XPATH).click()
+
+    def set_password(self, password):
+        time.sleep(3)
+        self.find_element(*self.locator.SET_PASS).send_keys(password)
+
+    def click_sign_in(self):
+        self.find_element(*self.locator.CLICK_SIGNIN_BTN).click()
+
+
