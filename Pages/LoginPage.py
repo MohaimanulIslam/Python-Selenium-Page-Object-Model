@@ -1,15 +1,16 @@
-class LoginPage():
+from Locators.locators import SignInPageLocators
+from Pages.BasePage import HomePage
+
+
+class LoginPage(HomePage):
 
     def __init__(self, driver):
+        self.locator = SignInPageLocators
         self.driver = driver
-        self.setEmailId = "login-email"
-        self.clickEmailXpath = "//*[@id=\"login-form\"]/button"
-        self.passwordXpath = "//*[@id=\"login-password\"]"
-        self.clickPassword = "//button[contains(.,'Sign in')]"
-        self.clickLogin = "/html/body/div[1]/div/div[1]/div/div[3]/div/ul[2]/li[2]/a"
+        super(LoginPage, self).__init__(driver)
 
     def click_on_login(self):
-        self.driver.find_element_by_xpath(self.clickLogin).click()
+        self.find_element(*self.locator.LOGIN_BTN).click()
 
-    def enter_email_id(self, email):
-        self.driver.find_element_by_id(self.setEmailId).send_keys(email)
+    # def enter_email_id(self, email):
+    #     self.driver.find_element_by_id(self.setEmailId).send_keys(email)
