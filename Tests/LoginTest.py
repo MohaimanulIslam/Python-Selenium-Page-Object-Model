@@ -8,3 +8,4 @@ class LoginTest(BasePage):
         loginPage.click_on_login()
         # loginPage.enter_email_id("marazislam@gmail.com")
 
+
