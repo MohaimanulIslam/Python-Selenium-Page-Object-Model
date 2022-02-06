@@ -1,18 +1,20 @@
 from Pages.LoginPage import LoginPage
 from Pages.SearchPage import SearchPage
+from Pages.UploadPhotoPage import UploadPhotoPage
 from Tests.BasePage import BasePage
 
 
-class SearchTest(BasePage):
+class UploadPhotoTest(BasePage):
 
-    def test_search_page(self):
+    def test_upload_photo_page(self):
         loginPage = LoginPage(self.driver)
         loginPage.click_on_login()
         loginPage.set_email("marazislam8@gmail.com")
         loginPage.click_on_next()
         loginPage.set_password("TestCase0101")
         loginPage.click_sign_in()
-        
-        search = SearchPage(self.driver)
-        search.click_on_searchBar("Harry Porter")
-        search.click_on_searchBtn()
+
+        uploadPhoto = UploadPhotoPage(self.driver)
+        uploadPhoto.set_choose_photo("C:\Users\Lenovo\Pictures\Screenshots\up.png")
+        uploadPhoto.upload_btn()
+        uploadPhoto.upload()
